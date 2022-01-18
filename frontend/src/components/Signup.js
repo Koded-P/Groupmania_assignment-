@@ -30,7 +30,7 @@ const Signup = () => {
                     lastName,
                     firstName,
                     email,
-                    password
+                    password,
                 }
             })
                 .then((res) => {
