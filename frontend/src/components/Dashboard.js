@@ -26,7 +26,7 @@ const Dashboard = () => {
   const userId = tokenUser.userId
 
   const getPosts = async () => {
-    const response = await fetch('http://localhost:5050/posts', {
+    const response = await fetch('http://localhost:3000/posts', {
       headers: { Authorization: 'Bearer ' + token },
     })
     const posts = await response.json()
@@ -57,7 +57,7 @@ const Dashboard = () => {
 
       axios({
         method: 'POST',
-        url: 'http://localhost:5050/posts',
+        url: 'http://localhost:3000/posts',
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: 'Bearer ' + token,
@@ -113,7 +113,7 @@ const Dashboard = () => {
                 e.preventDefault()
                 axios({
                   method: 'DELETE',
-                  url: `http://localhost:5050/posts/${id}`,
+                  url: `http://localhost:3000/posts/${id}`,
                   headers: { Authorization: 'Bearer ' + token },
                 }).then(() => getPosts())
               }
@@ -125,7 +125,7 @@ const Dashboard = () => {
                     postId: id,
                     userId: userId,
                   },
-                  url: `http://localhost:5050/posts/${id}/like`,
+                  url: `http://localhost:3000/posts/${id}/like`,
                   headers: {
                     Authorization: 'Bearer ' + token,
                   },
@@ -158,7 +158,7 @@ const Dashboard = () => {
                       userId: userId,
                     },
                     withCredentiels: true,
-                    url: `http://localhost:5050/posts/${id}/comment`,
+                    url: `http://localhost:3000/posts/${id}/comment`,
                     headers: {
                       Authorization: 'Bearer ' + token,
                     },
@@ -173,7 +173,7 @@ const Dashboard = () => {
 
               const getComments = async () => {
                 const response = await fetch(
-                  `http://localhost:5050/posts/${id}/comment`,
+                  `http://localhost:3000/posts/${id}/comment`,
                   { headers: { Authorization: 'Bearer ' + token } }
                 )
                 const comments = await response.json()
@@ -246,7 +246,7 @@ const Dashboard = () => {
                           e.preventDefault()
                           axios({
                             method: 'DELETE',
-                            url: `http://localhost:5050/comments/${id}`,
+                            url: `http://localhost:3000/comments/${id}`,
                             headers: {
                               Authorization: 'Bearer ' + token,
                             },

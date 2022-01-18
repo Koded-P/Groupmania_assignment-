@@ -36,7 +36,7 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       }
-      fetch('http://localhost:5050/users/login', init)
+      fetch('http://localhost:3000/users/login')
         .then((res) => {
           if (res.status === 200) {
             return res.json()
@@ -53,7 +53,7 @@ const Login = () => {
           }
         })
         .then((data) => {
-          localStorage.setItem('token', JSON.stringify(data.token))
+          localStorage.setItem('token', JSON.stringify(data))
           history.push('/dashboard')
         })
         .catch((error) => console.log(error))
