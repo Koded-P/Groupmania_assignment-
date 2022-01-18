@@ -25,7 +25,7 @@ const Signup = () => {
         if (inputCheck()) {
             axios({
                 method: 'POST',
-                url: 'http://localhost:5050/users/signup',
+                url: 'http://localhost:3000/users/signup',
                 data: {
                     lastName,
                     firstName,
